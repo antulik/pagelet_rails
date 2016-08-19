@@ -1,5 +1,8 @@
 # PageletRails
 
+[![Gem Version](https://badge.fury.io/rb/pagelet_rails.svg)](https://badge.fury.io/rb/pagelet_rails)
+
+
 [Demo](https://polar-river-18908.herokuapp.com)
 
 ## Why?
