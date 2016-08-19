@@ -1,0 +1,14 @@
+ruby:
+  height = pagelet_options.placeholder.try(:[], :height)
+  text = pagelet_options.placeholder.try(:[], :text) || 'Loading ...'
+  height = height.is_a?(Numeric) ? "#{height}px" : 'auto'
+
+div style="display: table; height: #{height}; overflow: hidden; width: 100%;"
+  div style="display: table-cell; vertical-align: middle;"
+    div.text-center
+      span.spinner.spinner-three-bounce
+        .bounce1
+        .bounce2
+        .bounce3
+      br
+      span = text

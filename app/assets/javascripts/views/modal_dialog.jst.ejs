@@ -1,0 +1,13 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <% if (state == 'loading') { %>
+                <p>Loading...</p>
+            <% } %>
+
+            <% if (state == 'error') { %>
+                <p>This page could not be loaded. Please try again later.</p>
+            <% } %>
+        </div>
+    </div>
+</div>
