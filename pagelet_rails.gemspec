@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = PageletRails::VERSION
   s.authors     = ["Anton Katunin"]
   s.email       = ["antulik@gmail.com"]
-  s.homepage    = "http://google.com"
-  s.summary     = "TO DO: Summary of PageletRails."
-  s.description = "TO DO: Description of PageletRails."
+  s.homepage    = "https://github.com/antulik/pagelet_rails"
+  s.summary     = "Improve perceived performance of your rails application with minimum effort"
+  s.description = "Improve perceived performance of your rails application with minimum effort"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
