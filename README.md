@@ -2,9 +2,6 @@
 
 [![Gem Version](https://badge.fury.io/rb/pagelet_rails.svg)](https://badge.fury.io/rb/pagelet_rails)
 
-
-[Demo](https://polar-river-18908.herokuapp.com)
-
 ## Why?
 
 * Do you have pages with a lot of information? 
@@ -13,6 +10,8 @@
 * Does this mean your users have to wait?
 
 Don't make your users wait for page to load.
+ 
+[View Demo Project](https://polar-river-18908.herokuapp.com)
  
 ## Example
  
@@ -54,6 +53,20 @@ Or install it yourself as:
 $ gem install pagelet_rails
 ```
 
+## Setup
+
+Include small javascript extension `pagelet_rails`:
+
+```js
+// file app/assets/javascripts/application.js
+
+//= require jquery
+//= require jquery_ujs
+// ...
+//= require pagelet_rails
+
+````
+
 ## Structure
 
 ```
@@ -65,7 +78,7 @@ app
 │   │   │   ├── show.erb
 ```
 
-## Example
+## Example Usage
 
 ```ruby
 # app/pagelets/current_time/current_time_controller.rb
@@ -80,7 +93,6 @@ class CurrentTime::CurrentTimeController < ApplicationController
   end
 end
 ``` 
-
 
 ```erb
 <!-- Please note view path -->
@@ -101,7 +113,19 @@ And now use it anywhere in your view
 <!-- app/views/dashboard/show.erb -->
 <%= pagelet :pagelets_current_time %>
 ```
- 
+
+## Documentation
+
+- [Pagelet view helper](#pagelet-view-helper)
+- [Pagelet options](#pagelet-options)
+- [Inline routes](#inline-routes)
+- [Pagelet cache](#pagelet-cache)
+- [Advanced functionality](#advanced-functionality)
+  - [Partial update](#partial-update)
+  - [Streaming](#streaming)
+  - [Super smart caching](#super-smart-caching)
+  - [Ajax Batching](#ajax-batching)
+
 ## Pagelet view helper
 
 `pagelet` helper allows you to render pagelets in views. Name of pagelet is its path. 
@@ -384,21 +408,13 @@ There will be one request per group. Missing value is considered a separate grou
  
 ## Todo
 
-* package as gem
-* assets support
-* ~~batch request~~
-  * ~~each pagelet makes a separate http call, it's very inefficient for pages with many pagelets. Goal is to group multiple pagelets into single http request.~~ 
-* ~~streaming of components at the end of body~~
-  * ~~goal is to serve the page with placeholders but hold connection and render pagelets in the same request before `</body>` tag~~
-* ~~partial updates~~
-* ~~turbolinks support~~
-* ~~smart caching~~
 * delay load of not visible pagelets (aka. below the fold)
   * do not load pagelets which are not visible to the user until user scrolls down. For example like Youtube comments.
 * fix streaming with nested layouts (rails bug?)
+* add rails 4 support
+* high test coverage
+* update actionpack-action_caching gem to support rails 5
 
-## Contributing
-Contribution directions go here.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
