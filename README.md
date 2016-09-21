@@ -11,7 +11,7 @@
 
 Don't make your users wait for page to load.
  
-[View Demo Project](https://polar-river-18908.herokuapp.com)
+[View Demo Project](http://polar-river-18908.herokuapp.com)
  
 ## Example
  
