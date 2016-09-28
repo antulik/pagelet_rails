@@ -1,0 +1,8 @@
+<% if pagelet_request? || pagelet_options.skip_container %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
+
+<% else %>
+  <%= content_tag :div, html_container_attributes do %>
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  <% end %>
+<% end %>

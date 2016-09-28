@@ -1,9 +1,8 @@
-ruby:
-  height = pagelet_options.placeholder.try(:[], :height)
-  text = pagelet_options.placeholder.try(:[], :text) || 'Loading ...'
-  height = height.is_a?(Numeric) ? "#{height}px" : 'auto'
+<% height = pagelet_options.placeholder.try(:[], :height) %>
+<% height = height.is_a?(Numeric) ? "#{height}px" : 'auto' %>
+<% text = pagelet_options.placeholder.try(:[], :text) || 'Loading ...' %>
 
-css:
+<style type="text/css">
   /* Three Bounce */
   .spinner.spinner-three-bounce {
     width: 70px;
@@ -53,14 +52,20 @@ css:
       -webkit-transform: scale(1.0);
     }
   }
+</style>
 
-
-div style="display: table; height: #{height}; overflow: hidden; width: 100%;"
-  div style="display: table-cell; vertical-align: middle;"
-    div.text-center
-      span.spinner.spinner-three-bounce
-        .bounce1
-        .bounce2
-        .bounce3
-      br
-      span = text
+<div style="display: table; height: <%= height %>; overflow: hidden; width: 100%;">
+  <div style="display: table-cell; vertical-align: middle;">
+    <div class="text-center">
+      <div class="spinner spinner-three-bounce">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+      <br>
+      <span>
+        <%= text %>
+      </span>
+    </div>
+  </div>
+</div>

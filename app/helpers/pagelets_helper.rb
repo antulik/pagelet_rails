@@ -1,5 +1,25 @@
 module PageletsHelper
 
+  def html_container_attributes
+    html_opts = pagelet_options.html || {}
+    classes = html_opts.fetch(:class, '').split(' ')
+    classes << "pagelet-#{controller_name}"
+    classes << "pagelet-#{controller_name}-#{action_name}"
+
+    html_opts[:id] ||= pagelet_default_id
+    html_opts[:class] = classes.join(' ')
+
+    html_opts['data-pagelet-container'] = true
+
+    encode_data = pagelet_options.original_options.to_h.except('remote')
+    html_opts['data-pagelet-options'] = PageletRails::Encryptor.encode(encode_data)
+
+    if pagelet_options.ajax_group
+      html_opts['data-pagelet-group'] = pagelet_options.ajax_group
+    end
+    html_opts
+  end
+
   def pagelet_stream
     return nil if pagelet_stream_objects.empty?
     pagelet_stream_objects.each do |key, block|
