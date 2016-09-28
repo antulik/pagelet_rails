@@ -31,7 +31,7 @@ module PageletRails::Concerns::Routes
 
     def load_pagelet_routes! context
       @pagelet_routes.each do |proc|
-        context.instance_eval &proc
+        context.instance_eval(&proc)
       end
     end
 

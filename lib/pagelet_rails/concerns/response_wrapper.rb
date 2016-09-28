@@ -14,7 +14,7 @@ module PageletRails::Concerns::ResponseWrapper
           memo
         }
 
-        if html.match /^\s*</
+        if html.match(/^\s*</)
           # the body could be javascript, make sure it's html before wrapping
 
           id = ActionController::Base.helpers.escape_javascript params[:target_container]

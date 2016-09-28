@@ -16,13 +16,13 @@ module PageletRails::Concerns::Controller
 
     helper_method :pagelet_request?
 
-    pagelet_options layout: 'panel'
+    pagelet_options layout: 'container'
   end
 
   def layout_name
     layout = params[:layout] || pagelet_options.layout
 
-    "pagelets/#{layout}"
+    "pagelet_rails/#{layout}"
   end
 
   def pagelet_request?
@@ -33,6 +33,7 @@ module PageletRails::Concerns::Controller
 
   def append_pagelet_view_paths
     self.view_paths.unshift 'app/pagelets/'
+    self.view_paths.unshift 'test/dummy/app/pagelets/' if Rails.env.test?
 
     # lookup_context.prefixes.clear
     view = "#{controller_name}/views"

@@ -8,7 +8,7 @@ module PageletRails::Concerns::Options
   end
 
   def pagelet_options *args
-    set_pagelet_options *args
+    set_pagelet_options(*args)
 
     opts = self.class.pagelet_options
     class_default_opts = opts.fetch('default', {})
@@ -47,7 +47,7 @@ module PageletRails::Concerns::Options
     include Shared
 
     def pagelet_options *args
-      set_pagelet_options *args
+      set_pagelet_options(*args)
 
       if superclass && superclass.instance_variable_defined?(:@pagelet_options)
         parent = superclass.instance_variable_get :@pagelet_options

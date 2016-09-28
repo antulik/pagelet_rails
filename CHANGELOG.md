@@ -2,6 +2,7 @@
 ### 0.1.2
 
 - removed 'slim' dependency
+- rails 4 support
 
 ### 0.1.1
 

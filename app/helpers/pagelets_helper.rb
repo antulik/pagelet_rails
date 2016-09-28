@@ -44,7 +44,7 @@ module PageletsHelper
   end
 
   def pagelet path, p_options = {}
-    puts "Rendering pagelet #{path}".blue
+    Rails.logger.info "Rendering pagelet #{path}"
 
     p_params = p_options.delete(:params) { {} }.with_indifferent_access
 
@@ -92,8 +92,12 @@ module PageletsHelper
     p_request.parameters.clear
     p_request.parameters.merge! p_params
 
-    p_response = controller_class.make_response! p_request
-    c.dispatch(action, p_request, p_response)
+    if c.method(:dispatch).arity == 3
+      p_response = controller_class.make_response! p_request
+      c.dispatch(action, p_request, p_response)
+    else
+      c.dispatch(action, p_request)
+    end
 
     body = c.response.body
     body.html_safe

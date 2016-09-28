@@ -427,8 +427,6 @@ This is a list of all advantages that would be made possible by using this gem's
 
 * delay load of not visible pagelets (aka. below the fold)
   * do not load pagelets which are not visible to the user until user scrolls down. For example like Youtube comments.
-* fix streaming with nested layouts (rails bug?)
-* add rails 4 support
 * high test coverage
 * update actionpack-action_caching gem to support rails 5
 
