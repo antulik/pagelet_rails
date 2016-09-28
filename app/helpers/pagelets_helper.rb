@@ -49,7 +49,7 @@ module PageletsHelper
     p_params = p_options.delete(:params) { {} }.with_indifferent_access
 
     if path.is_a? Symbol
-      path = self.send("#{path}_path", p_params)
+      path = self.send("#{path}_url", p_params)
     else
       uri = URI(path)
       p_params.merge! Rack::Utils.parse_nested_query(uri.query)
