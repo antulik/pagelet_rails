@@ -10,9 +10,7 @@ module PageletsHelper
     html_opts[:class] = classes.join(' ')
 
     html_opts['data-pagelet-container'] = true
-
-    encode_data = pagelet_options.original_options.to_h.except('remote')
-    html_opts['data-pagelet-options'] = PageletRails::Encryptor.encode(encode_data)
+    html_opts['data-pagelet-options'] = pagelet_encoded_original_options
 
     if pagelet_options.ajax_group
       html_opts['data-pagelet-group'] = pagelet_options.ajax_group

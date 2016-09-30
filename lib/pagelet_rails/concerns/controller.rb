@@ -15,6 +15,7 @@ module PageletRails::Concerns::Controller
     layout :layout_name
 
     helper_method :pagelet_request?
+    helper_method :pagelet_encoded_original_options
 
     pagelet_options layout: 'container'
   end
@@ -54,6 +55,11 @@ module PageletRails::Concerns::Controller
     end
   end
 
+  def pagelet_encoded_original_options
+    encode_data = pagelet_options.original_options.to_h.except('remote')
+    PageletRails::Encryptor.encode(encode_data)
+  end
+
   def pagelet_render_remotely?
     case pagelet_options.remote
     when :stream
@@ -63,6 +69,8 @@ module PageletRails::Concerns::Controller
       is_turbolinks_request = request.headers['Turbolinks-Referrer'].present?
       render_remotely = !is_turbolinks_request
     when true, :ajax
+      render_remotely = true
+    when :ssi
       render_remotely = true
     else
       render_remotely = false

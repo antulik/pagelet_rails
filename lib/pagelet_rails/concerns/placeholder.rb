@@ -27,9 +27,18 @@ module PageletRails::Concerns::Placeholder
       pagelet_options html: { 'data-widget-url' => url_for(data) }
     end
 
-    default_view = '/layouts/pagelet_rails/loading_placeholder'
-    view = pagelet_options.placeholder.try(:[], :view).presence || default_view
 
-    render view
+    if pagelet_options.remote == :ssi
+      path = url_for data.merge(
+        only_path: true,
+        original_pagelet_options: pagelet_encoded_original_options
+      )
+      render body: "<!--#include virtual=\"#{path}\" -->"
+    else
+      default_view = '/layouts/pagelet_rails/loading_placeholder'
+      view = pagelet_options.placeholder.try(:[], :view).presence || default_view
+
+      render view
+    end
   end
 end
