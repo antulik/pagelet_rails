@@ -23,11 +23,6 @@ module PageletRails::Concerns::Placeholder
     data = params.deep_dup
     data.permit!
 
-    if pagelet_options.remote != :stream
-      pagelet_options html: { 'data-widget-url' => url_for(data) }
-    end
-
-
     if pagelet_options.remote == :ssi
       path = url_for data.merge(
         only_path: true,
@@ -35,6 +30,10 @@ module PageletRails::Concerns::Placeholder
       )
       render body: "<!--#include virtual=\"#{path}\" -->"
     else
+      if pagelet_options.remote != :stream
+        pagelet_options html: { 'data-widget-url' => url_for(data) }
+      end
+
       default_view = '/layouts/pagelet_rails/loading_placeholder'
       view = pagelet_options.placeholder.try(:[], :view).presence || default_view
 

@@ -2,6 +2,8 @@
 
 [![Gem Version](https://badge.fury.io/rb/pagelet_rails.svg)](https://badge.fury.io/rb/pagelet_rails)
 
+Warning: This gem is still in testing, so API might change.
+
 ## Why?
 
 * Do you have pages with a lot of information? 

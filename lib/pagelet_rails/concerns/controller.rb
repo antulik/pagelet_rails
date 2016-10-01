@@ -12,6 +12,9 @@ module PageletRails::Concerns::Controller
     prepend_before_action :merge_original_pagelet_options
     prepend_before_action :append_pagelet_view_paths
 
+    append_view_path 'app/pagelets/'
+    append_view_path 'test/dummy/app/pagelets/' if Rails.env.test?
+
     layout :layout_name
 
     helper_method :pagelet_request?
@@ -33,9 +36,6 @@ module PageletRails::Concerns::Controller
   private
 
   def append_pagelet_view_paths
-    self.view_paths.unshift 'app/pagelets/'
-    self.view_paths.unshift 'test/dummy/app/pagelets/' if Rails.env.test?
-
     # lookup_context.prefixes.clear
     view = "#{controller_name}/views"
     if lookup_context.prefixes.exclude?(view)

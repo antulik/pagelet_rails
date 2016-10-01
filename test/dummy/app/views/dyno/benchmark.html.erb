@@ -1,0 +1,4 @@
+<% delay = params[:sleep].to_i / 1000.0 %>
+<% params[:size].to_i.times do %>
+  <%= pagelet :pagelets_static_text, remote: params[:remote].to_sym, sleep: delay %>
+<% end %>
