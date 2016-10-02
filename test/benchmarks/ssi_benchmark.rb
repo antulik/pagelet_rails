@@ -3,10 +3,10 @@ require 'active_support/all'
 require 'csv'
 require 'pp'
 
-root_url = 'http://local.dev/dyno/test.html'
+root_url = 'http://local.dev/dyno/benchmark.html'
 
-delays = [0]
-sizes = (15..20).to_a
+delays = [0, 10, 20, 30, 50, 100, 200]
+sizes = (1..10).to_a
 modes = ['inline']
 
 rows = []
@@ -14,7 +14,8 @@ sizes.map do |size|
 
   delays.each do |delay|
     r = []
-    r << "#{size} x #{delay}ms"
+    r << size
+    r << delay
 
     modes.each do |mode|
       params = {
@@ -24,7 +25,7 @@ sizes.map do |size|
       }
       url = "#{root_url}?#{params.to_query}"
 
-      args = %W(ab -n 100 -e output.csv -l #{url})
+      args = %W(ab -n 50 -e output.csv -l #{url})
       # puts args
       system(*args)
 
