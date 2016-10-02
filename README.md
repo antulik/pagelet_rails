@@ -146,6 +146,7 @@ Options for `remote`:
 * `:turbolinks`  - same as `:ajax` but inline for turbolinks page visit
 * `false` or missing - render inline
 * `:stream` - (aka BigPipe) render placeholder and render full version at the end of html. See streaming for more info.
+* `:ssi` - render through [server side includes](https://en.wikipedia.org/wiki/Server_Side_Includes)
 
 ### params
 
