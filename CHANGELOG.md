@@ -1,3 +1,7 @@
+### 0.1.4
+
+- added support for server side includes rendering mode
+
 ### 0.1.3
 
 - fixed #1 - ajax loading of single pagelet fails over https

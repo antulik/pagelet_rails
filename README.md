@@ -408,24 +408,6 @@ Only relevant for `remote: true` and `remote: :turbolinks` when request is loade
 
 There will be one request per group. Missing value is considered a separate group as well.
 
-## All possible advantages of this gem's approach
-
-This is a list of all advantages that would be made possible by using this gem's approach of abstraction and decomposition. Note: not all features are implemented yet.
-
-- Ability to use HTTP public cache for fragment caching
-- Easier fragment caching on the server
-- Batch Ajax requests
-- Custom loading placeholders
-- Progressive rendering of the page
-- Partial page updates
-- "Super smart caching" 
-- Delay render below the fold
-- Simplified development and testing
-- Minimum DSL or new syntax
-- Asset dependencies
-- Parallel rendering
-- Take advantage of HTTP2 features
-
 ## Todo
 
 * delay load of not visible pagelets (aka. below the fold)
@@ -433,6 +415,9 @@ This is a list of all advantages that would be made possible by using this gem's
 * high test coverage
 * update actionpack-action_caching gem to support rails 5
 
+## Links
+
+- [Parallel rendering in Rails](http://antulik.com/posts/2016-10-02-parallel-rendering-in-rails.html)
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
