@@ -1,3 +1,7 @@
+### 0.1.5
+
+- fixed #2 when routes were causing error 
+
 ### 0.1.4
 
 - added support for server side includes rendering mode
