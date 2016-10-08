@@ -1,6 +1,10 @@
 module PageletRails::Concerns::Routes
   extend ActiveSupport::Concern
 
+  included do
+    @pagelet_routes = []
+  end
+
   module ClassMethods
     # Define routes inline in controller
     #
