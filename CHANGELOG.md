@@ -1,3 +1,7 @@
+### 0.1.6
+
+- fixed #3 include more data in pagelet request
+
 ### 0.1.5
 
 - fixed #2 when routes were causing error 

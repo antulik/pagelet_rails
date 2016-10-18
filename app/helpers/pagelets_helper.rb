@@ -76,15 +76,24 @@ module PageletsHelper
     c.pagelet_options p_options
     c.pagelet_options original_options: p_options
 
-    env = Rack::MockRequest.env_for(path,
-      'REMOTE_ADDR'              => request.env['REMOTE_ADDR'],
-      'HTTP_HOST'                => request.env['HTTP_HOST'],
-      'HTTP_TURBOLINKS_REFERRER' => request.env['HTTP_TURBOLINKS_REFERRER'],
-      'HTTP_USER_AGENT'          => request.env['HTTP_USER_AGENT'],
-      'HTTP_X_CSRF_TOKEN'        => request.env['HTTP_X_CSRF_TOKEN'],
-      'HTTP_X_PAGELET'           => request.env['HTTP_X_PAGELET'],
-      'HTTP_X_REQUESTED_WITH'    => "XMLHttpRequest",
-    )
+    env = request.env.select do |key, value|
+      case key.to_s
+      when /^action_dispatch\.request/i,
+        /^action_controller/i,
+        /^rack\.request/i,
+        /^request/i,
+        'HTTP_ACCEPT',
+        'CONTENT_TYPE',
+        'CONTENT_LENGTH',
+        'REQUEST_METHOD'
+        false
+      else
+        true
+      end
+    end
+
+    env['HTTP_X_REQUESTED_WITH'] = "XMLHttpRequest"
+    env = Rack::MockRequest.env_for(path, env)
 
     p_request = ActionDispatch::Request.new(env)
     p_request.parameters.clear
