@@ -356,6 +356,8 @@ This is the most efficient way to deliver data with minimum delays. The placehol
 
 This mode requires rendering of templates with [streaming mode](http://api.rubyonrails.org/classes/ActionController/Streaming.html) enabled.
 
+Warning: Session and Cookies are currently not supported in streaming mode.
+
 ```ruby
   #...
   def show
