@@ -412,6 +412,7 @@ There will be one request per group. Missing value is considered a separate grou
 
 ## Todo
 
+* session (and CSRF) support in streaming mode
 * delay load of not visible pagelets (aka. below the fold)
   * do not load pagelets which are not visible to the user until user scrolls down. For example like Youtube comments.
 * high test coverage
