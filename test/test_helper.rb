@@ -1,3 +1,11 @@
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter do |source_file|
+    source_file.filename.to_s.include?('test')
+  end
+end
+
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
