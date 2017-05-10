@@ -41,7 +41,7 @@ class PageletRails::Encryptor
   def encryptor
     @encryptor ||= begin
       key = self.class.get_key secret, salt
-
+      key = key[0..31]
       ActiveSupport::MessageEncryptor.new(key)
     end
   end

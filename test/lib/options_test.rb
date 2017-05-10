@@ -57,6 +57,6 @@ class PageletRails::OptionsTest < ActiveSupport::TestCase
   test "action specific value not scoped" do
     inst = C.new
     inst.action_name = 'other_action'
-    assert_equal nil, inst.pagelet_options.four
+    assert_nil inst.pagelet_options.four
   end
 end

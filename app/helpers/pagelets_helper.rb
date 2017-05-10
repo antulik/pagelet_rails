@@ -70,7 +70,19 @@ module PageletsHelper
       }
     end
 
-    p_options.deep_merge! parent_params: params.to_h
+    parent_params =
+      if params.respond_to?(:permit)
+        if defined?(controller)
+          h = controller.send(:pagelet_params)
+          h.to_h
+        else
+          {}
+        end
+      else
+        params.to_h
+      end
+
+    p_options.deep_merge! parent_params: parent_params
 
     c = controller_class.new
     c.pagelet_options p_options

@@ -20,7 +20,9 @@ if Rails.gem_version >= Gem::Version.new('5')
   Rails.application.config.active_record.belongs_to_required_by_default = true
 
   # Do not halt callback chains when a callback returns false. Previous versions had true.
-  ActiveSupport.halt_callback_chains_on_return_false = false
+  unless Rails.version == '5.1.0'
+    ActiveSupport.halt_callback_chains_on_return_false = false
+  end
 
   # Configure SSL options to enable HSTS with subdomains. Previous versions had false.
   Rails.application.config.ssl_options = { hsts: { subdomains: true } }

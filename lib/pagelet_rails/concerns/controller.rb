@@ -39,7 +39,7 @@ module PageletRails::Concerns::Controller
     # lookup_context.prefixes.clear
     view = "#{controller_name}/views"
     if lookup_context.prefixes.exclude?(view)
-      lookup_context.prefixes.unshift "#{controller_name}/views"
+      lookup_context.prefixes.unshift view
     end
 
     # https://github.com/rails/actionpack-action_caching/issues/32

@@ -18,4 +18,3 @@ class DynoTest < ActionDispatch::IntegrationTest
     assert_select 'div', 'color:red'
   end
 end
-
