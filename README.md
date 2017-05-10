@@ -1,10 +1,10 @@
 # PageletRails
 
-[![GitHub license](https://img.shields.io/github/license/n-rodriguez/pagelet_rails.svg)](https://github.com/n-rodriguez/pagelet_rails/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/antulik/pagelet_rails/master/LICENSE)
 [![Gem Version](https://badge.fury.io/rb/pagelet_rails.svg)](https://badge.fury.io/rb/pagelet_rails)
-[![Build Status](https://travis-ci.org/n-rodriguez/pagelet_rails.svg?branch=master)](https://travis-ci.org/n-rodriguez/pagelet_rails)
-[![Code Climate](https://codeclimate.com/github/n-rodriguez/pagelet_rails/badges/gpa.svg)](https://codeclimate.com/github/n-rodriguez/pagelet_rails)
-[![Test Coverage](https://codeclimate.com/github/n-rodriguez/pagelet_rails/badges/coverage.svg)](https://codeclimate.com/github/n-rodriguez/pagelet_rails/coverage)
+[![Build Status](https://travis-ci.org/antulik/pagelet_rails.svg?branch=master)](https://travis-ci.org/antulik/pagelet_rails)
+[![Code Climate](https://codeclimate.com/github/antulik/pagelet_rails/badges/gpa.svg)](https://codeclimate.com/github/antulik/pagelet_rails)
+[![Test Coverage](https://codeclimate.com/github/antulik/pagelet_rails/badges/coverage.svg)](https://codeclimate.com/github/antulik/pagelet_rails/coverage)
 
 Warning: This gem is still in testing, so API might change.
 
