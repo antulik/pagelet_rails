@@ -1,5 +1,6 @@
 # Ignore bundler config.
 /.bundle
+.ruby-version
 
 # Ignore Gemfile.lock
 /Gemfile.lock
@@ -13,3 +14,4 @@
 /test/dummy/db/*.sqlite3-journal
 /test/dummy/log/*.log
 /test/dummy/tmp/
+
