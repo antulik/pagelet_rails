@@ -38,7 +38,7 @@
   };
 
   root.loadThroughBatchProxy = function(urls) {
-    if (urls.length == 0) { return; }
+    if (urls.length === 0) { return; }
 
     var prev_index = 0;
 
@@ -59,7 +59,7 @@
         do {
           end_index = text.indexOf("\n\n//\n\n", prev_index);
 
-          if (end_index != -1) {
+          if (end_index !== -1) {
             var new_text = text.substring(prev_index, end_index);
 
             eval(new_text);
@@ -69,7 +69,7 @@
             // console.log(new_text);
           }
 
-        } while (end_index != -1);
+        } while (end_index !== -1);
       }
     });
   };
@@ -102,7 +102,7 @@
       if (groups.hasOwnProperty(group_name)) {
         var group = groups[group_name];
 
-        if (group.length == 1) {
+        if (group.length === 1) {
           root.loadDirectly(group[0]);
         } else {
           var urls = group.map(function(e) { return e.url; });
@@ -179,7 +179,3 @@
 
   initialise();
 })(window);
-
-
-
-

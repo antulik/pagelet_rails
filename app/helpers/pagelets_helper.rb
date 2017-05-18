@@ -83,7 +83,7 @@ module PageletsHelper
     c.pagelet_options p_options
     c.pagelet_options original_options: p_options
 
-    env = request.env.select do |key, value|
+    env = request.env.select do |key, _value|
       case key.to_s
       when /^action_dispatch\.request/i,
         /^action_controller/i,

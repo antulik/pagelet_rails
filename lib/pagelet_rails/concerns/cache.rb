@@ -26,17 +26,19 @@ module PageletRails::Concerns::Cache
 
     cache_path = pagelet_options.cache_path || cache_defaults[:cache_path]
 
-    cache_path = if cache_path.is_a?(Proc)
-      self.instance_exec(self, &cache_path)
-    elsif cache_path.respond_to?(:call)
-      cache_path.call(self)
-    elsif cache_path.is_a?(String)
-      {
-        custom: cache_path
-      }
-    else
-      cache_path
-    end
+    cache_path =
+      if cache_path.is_a?(Proc)
+        self.instance_exec(self, &cache_path)
+      elsif cache_path.respond_to?(:call)
+        cache_path.call(self)
+      elsif cache_path.is_a?(String)
+        {
+          custom: cache_path
+        }
+      else
+        cache_path
+      end
+
     cache_path ||= {}
     cache_path[:controller] = params[:controller]
     cache_path[:action] = params[:action]
