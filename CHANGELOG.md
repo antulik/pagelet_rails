@@ -1,3 +1,8 @@
+### 0.1.7
+
+- fixed Rails 5.1
+- added compatibility with Rails 2.4
+
 ### 0.1.6
 
 - fixed #3 include more data in pagelet request
