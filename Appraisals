@@ -7,5 +7,6 @@ RAILS_VERSIONS = %w(
 RAILS_VERSIONS.each do |version|
   appraise "rails_#{version}" do
     gem 'rails', version
+    gem 'minitest', '~> 5.10', '!= 5.10.2'
   end
 end
