@@ -6,8 +6,8 @@ class DynoController < ApplicationController
 
   private
 
-    def pagelet_params
-      params.permit(:id)
-    end
+  def pagelet_params
+    params.permit(:id)
+  end
 
 end

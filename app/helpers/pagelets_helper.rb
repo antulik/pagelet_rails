@@ -71,13 +71,8 @@ module PageletsHelper
     end
 
     parent_params =
-      if params.respond_to?(:permit)
-        if defined?(controller)
-          h = controller.send(:pagelet_params)
-          h.to_h
-        else
-          {}
-        end
+      if params.respond_to?(:to_unsafe_h)
+        params.to_unsafe_h
       else
         params.to_h
       end
