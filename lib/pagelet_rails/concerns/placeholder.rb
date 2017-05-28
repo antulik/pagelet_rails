@@ -31,7 +31,7 @@ module PageletRails::Concerns::Placeholder
       render body: "<!--#include virtual=\"#{path}\" -->"
     else
       if pagelet_options.remote != :stream
-        pagelet_options html: { 'data-widget-url' => url_for(data) }
+        pagelet_options html: { 'data-pagelet-load' => 'true' }
       end
 
       default_view = '/layouts/pagelet_rails/loading_placeholder'

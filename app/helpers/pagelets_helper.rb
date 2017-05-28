@@ -18,6 +18,9 @@ module PageletsHelper
       html_opts['data-debug'] = PageletRails::Encryptor.decode(html_opts['data-pagelet-options'])
     end
 
+    html_opts['data-pagelet-tags'] = identified_by.join(' ')
+    html_opts['data-widget-url'] = url_for(params.to_unsafe_h)
+
     if pagelet_options.ajax_group
       html_opts['data-pagelet-group'] = pagelet_options.ajax_group
     end

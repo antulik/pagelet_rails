@@ -21,7 +21,7 @@ module PageletRails::Concerns::ResponseWrapper
           js = ActionController::Base.helpers.escape_javascript html
 
           html = ActionController::Base.helpers.raw(
-            "PageletRails.pageletArrived('#{id}', '#{js}');"
+            "PageletRails.pageletArrived('#{id}', '#{js}', #{trigger_change.to_json.html_safe});"
           )
 
           self.response_body = [html]

@@ -22,6 +22,7 @@ module PageletRails
       autoload :Placeholder
       autoload :ResponseWrapper
       autoload :Routes
+      autoload :Tags
     end
   end
 

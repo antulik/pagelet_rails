@@ -8,6 +8,7 @@ module PageletRails::Concerns::Controller
     include PageletRails::Concerns::Options
     include PageletRails::Concerns::Cache
     include PageletRails::Concerns::Placeholder
+    include PageletRails::Concerns::Tags
 
     prepend_before_action :merge_original_pagelet_options
     prepend_before_action :append_pagelet_view_paths

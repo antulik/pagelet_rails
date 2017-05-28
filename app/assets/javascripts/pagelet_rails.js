@@ -75,7 +75,7 @@
   };
 
   root.loadPagelets = function(selector) {
-    selector = selector || '[data-widget-url]';
+    selector = selector || '[data-pagelet-load]';
     var groups = {};
 
     $(selector).each(function(index, elem) {
@@ -112,14 +112,26 @@
     }
   };
 
-  root.pageletArrived = function(id, content) {
+  root.pageletArrived = function(id, content, tags) {
     root.placeToContainer(id, content);
     root.processDataRemoteTags();
+    root.tagsChanged(id, tags);
     $(document).trigger('pagelet-loaded');
   };
 
   root.placeToContainer = function(id, content) {
     $('#' + id).replaceWith(content);
+  };
+
+  root.tagsChanged = function(id, tags) {
+    if (tags && tags.length > 0) {
+      var selector = $();
+      tags.forEach(function(tag) {
+        selector = selector.add('[data-pagelet-tags~="' + tag + '"]:not(#' + id + ')');
+      });
+
+      root.loadPagelets(selector);
+    }
   };
 
   root.processDataRemoteTags = function() {
