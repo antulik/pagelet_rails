@@ -52,11 +52,12 @@ module PageletRails::Concerns::Controller
     if params[:original_pagelet_options]
       opts = PageletRails::Encryptor.decode(params[:original_pagelet_options])
       pagelet_options(opts)
+      pagelet_options(original_options: opts)
     end
   end
 
-  def pagelet_encoded_original_options
-    encode_data = pagelet_options.original_options.to_h.except('remote')
+  def pagelet_encoded_original_options new_opts = {}
+    encode_data = pagelet_options.original_options.to_h.except('remote').merge(new_opts)
     PageletRails::Encryptor.encode(encode_data)
   end
 

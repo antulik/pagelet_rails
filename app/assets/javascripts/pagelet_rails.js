@@ -119,7 +119,7 @@
   };
 
   root.placeToContainer = function(id, content) {
-    $('#' + id).html(content);
+    $('#' + id).replaceWith(content);
   };
 
   root.processDataRemoteTags = function() {

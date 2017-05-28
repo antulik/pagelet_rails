@@ -10,7 +10,13 @@ module PageletsHelper
     html_opts[:class] = classes.join(' ')
 
     html_opts['data-pagelet-container'] = true
-    html_opts['data-pagelet-options'] = pagelet_encoded_original_options
+    html_opts['data-pagelet-options'] = pagelet_encoded_original_options(
+      html: {id: html_opts[:id]}
+    )
+
+    if Rails.env.development?
+      html_opts['data-debug'] = PageletRails::Encryptor.decode(html_opts['data-pagelet-options'])
+    end
 
     if pagelet_options.ajax_group
       html_opts['data-pagelet-group'] = pagelet_options.ajax_group
@@ -66,18 +72,20 @@ module PageletsHelper
       p_options.deep_merge! html: { id: html_id }
 
       add_pagelet_stream html_id, &Proc.new {
-        pagelet path, p_options.merge(remote: false, skip_container: true)
+        pagelet path, p_options.merge(remote: false)
       }
     end
 
-    parent_params =
-      if params.respond_to?(:to_unsafe_h)
-        params.to_unsafe_h
-      else
-        params.to_h
-      end
+    unless p_options.delete(:skip_parent_params)
+      parent_params =
+        if params.respond_to?(:to_unsafe_h)
+          params.to_unsafe_h
+        else
+          params.to_h
+        end
 
-    p_options.deep_merge! parent_params: parent_params
+      p_options.deep_merge!(parent_params: parent_params)
+    end
 
     c = controller_class.new
     c.pagelet_options p_options
