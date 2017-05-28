@@ -10,6 +10,8 @@ module PageletRails::Concerns::Controller
     include PageletRails::Concerns::Placeholder
     include PageletRails::Concerns::Tags
 
+    include PageletsHelper
+
     prepend_before_action :merge_original_pagelet_options
     prepend_before_action :append_pagelet_view_paths
 
@@ -81,4 +83,10 @@ module PageletRails::Concerns::Controller
     render_remotely
   end
 
+  def redirect_to *args
+    options = args.extract_options!
+    new_params = options.merge(original_pagelet_options: pagelet_encoded_original_options)
+
+    render plain: pagelet(url_for(*args, new_params))
+  end
 end
