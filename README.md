@@ -171,12 +171,17 @@ You can specify html attributes to pagelet with `html` option
 
 ### placeholder
 
+Configuration for placeholder before pagelet is loaded.
+
 ```erb
 <%= pagelet :pagelets_current_time, placeholder: { text: 'Loading...', height: 300 } %>
 ```
 
-Configuration for placeholder before pagelet is loaded.
+or use your own placeholder template
 
+```erb
+ <%= pagelet :pagelets_current_time, placeholder: { view: 'path_to_template' } %>
+```
 
 ### other
 
