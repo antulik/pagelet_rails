@@ -1,3 +1,8 @@
+### 0.1.8
+
+- Fix executable "rails" conflicts with railties (#11)
+- Added trial feature to trigger updates
+
 ### 0.1.7
 
 - fixed Rails 5.1
