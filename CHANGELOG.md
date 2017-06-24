@@ -1,3 +1,10 @@
+### 0.2.0
+
+- Fixed bug when original html class is lost (#12)
+- Simplified rendering, now it always renders outside div container
+- New feature to trigger refresh of other pagelets on the page (`identified_by` and `trigger_change` methods)
+- `redirect_to` inside pagelet does not affect the main page when redirect destination is also pagelet
+
 ### 0.1.8
 
 - Fix executable "rails" conflicts with railties (#11)
