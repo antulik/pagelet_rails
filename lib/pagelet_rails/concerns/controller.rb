@@ -93,7 +93,7 @@ module PageletRails::Concerns::Controller
     end
 
     controller_class = path_opts[:controller].camelize.concat('Controller').safe_constantize
-    is_pagelet = controller_class&.included_modules&.include?(PageletRails::Concerns::Controller)
+    is_pagelet = controller_class && controller_class.include?(PageletRails::Concerns::Controller)
 
     if is_pagelet
       options = args.extract_options!
