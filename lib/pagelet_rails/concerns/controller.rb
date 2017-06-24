@@ -85,9 +85,23 @@ module PageletRails::Concerns::Controller
   end
 
   def redirect_to *args
-    options = args.extract_options!
-    new_params = options.merge(original_pagelet_options: pagelet_encoded_original_options)
+    begin
+      redirect_url = url_for(*args)
+      path_opts = Rails.application.routes.recognize_path(redirect_url)
+    rescue ActionController::RoutingError
+      return super
+    end
 
-    render plain: pagelet(url_for(*args, new_params))
+    controller_class = path_opts[:controller].camelize.concat('Controller').safe_constantize
+    is_pagelet = controller_class&.included_modules&.include?(PageletRails::Concerns::Controller)
+
+    if is_pagelet
+      options = args.extract_options!
+      new_params = options.merge(original_pagelet_options: pagelet_encoded_original_options)
+
+      render plain: pagelet(url_for(*args, new_params))
+    else
+      super
+    end
   end
 end
