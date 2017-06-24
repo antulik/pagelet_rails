@@ -60,7 +60,8 @@ module PageletRails::Concerns::Controller
   end
 
   def pagelet_encoded_original_options new_opts = {}
-    encode_data = pagelet_options.original_options.to_h.except('remote').merge(new_opts)
+    encode_data = pagelet_options.original_options.to_h
+      .with_indifferent_access.except('remote').deep_merge(new_opts)
     PageletRails::Encryptor.encode(encode_data)
   end
 

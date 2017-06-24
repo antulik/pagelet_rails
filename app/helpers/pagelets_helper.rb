@@ -1,7 +1,7 @@
 module PageletsHelper
 
   def html_container_attributes
-    html_opts = pagelet_options.html || {}
+    html_opts = pagelet_options.html.deep_dup || {}
     classes = html_opts.fetch(:class, '').split(' ')
     classes << "pagelet-#{controller_name}"
     classes << "pagelet-#{controller_name}-#{action_name}"
