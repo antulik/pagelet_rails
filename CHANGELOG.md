@@ -1,3 +1,7 @@
+### next
+
+- Add parameters to javascript `pagelet-loaded`: id, tags, content
+
 ### 0.2.0
 
 - Fixed bug when original html class is lost (#12)

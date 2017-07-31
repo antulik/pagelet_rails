@@ -116,7 +116,7 @@
     root.placeToContainer(id, content);
     root.processDataRemoteTags();
     root.tagsChanged(id, tags);
-    $(document).trigger('pagelet-loaded');
+    $(document).trigger('pagelet-loaded', [id, tags, content]);
   };
 
   root.placeToContainer = function(id, content) {
