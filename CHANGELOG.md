@@ -1,6 +1,6 @@
-### next
+### 0.2.1
 
-- Add parameters to javascript `pagelet-loaded`: id, tags, content
+- Add parameters to javascript `pagelet-loaded` event: id, tags, content
 
 ### 0.2.0
 
