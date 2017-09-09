@@ -167,7 +167,7 @@
       var $el = $(elem);
       var container = $el.closest('[data-pagelet-container]');
 
-      if (!container) {
+      if (!container || container.length === 0) {
         return;
       }
 
