@@ -7,8 +7,8 @@ rvm:
   - 2.3.4
   - 2.4.1
 gemfile:
-  - gemfiles/rails_4.2.8.gemfile
-  - gemfiles/rails_5.0.2.gemfile
-  - gemfiles/rails_5.1.0.gemfile
+  - gemfiles/rails_4.2.9.gemfile
+  - gemfiles/rails_5.0.5.gemfile
+  - gemfiles/rails_5.1.3.gemfile
 after_success:
   - bundle exec codeclimate-test-reporter
