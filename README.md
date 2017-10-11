@@ -6,7 +6,7 @@
 [![Code Climate](https://codeclimate.com/github/antulik/pagelet_rails/badges/gpa.svg)](https://codeclimate.com/github/antulik/pagelet_rails)
 [![Test Coverage](https://codeclimate.com/github/antulik/pagelet_rails/badges/coverage.svg)](https://codeclimate.com/github/antulik/pagelet_rails/coverage)
 
-Warning: This gem is still in testing, so API might change.
+PageletRails is the addon for Rails which allows you to build components. Achieve amazing performance and reusability by slicing your webpages into components. PageletRails is built on top of Rails and uses it as much as possible. The main philosophy: **Do not reinvent the wheel, build on shoulders of giants.**
 
 ## Why?
 
@@ -40,9 +40,6 @@ Originally I saw such solution implemented at Facebook and Linkedin. Each page c
 You can break a web page into number of sections, where each one is responsible for its own functionality. Pagelet is the name for each section. It is a part of the page which has it's own route, controller and view.
 
 The closest alternative in ruby is [cells gem](https://github.com/apotonick/cells). After using it for long time I've faced many limitations of its approach. Cells has a custom Rails-like syntax but not quite. That is frustrating as you have to learn and remember those differences. The second issue, and the biggest, cells are internal only and not designed to be routable. This stops many great possibilities for improving perceived performance, as request has to wait for all cells to render.
-
-Pagelet_rails is built on top of Rails and uses it as much as possible. The main philosophy: **Do not reinvent the wheel, build on shoulders of giants.**
-
 
 # Usage
 
