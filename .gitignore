@@ -14,4 +14,4 @@
 /test/dummy/db/*.sqlite3-journal
 /test/dummy/log/*.log
 /test/dummy/tmp/
-
+/pkg/

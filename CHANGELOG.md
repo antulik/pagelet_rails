@@ -1,3 +1,6 @@
+### 0.2.2
+- Fix links with data-remote=true wrongly selected ([#18](https://github.com/antulik/pagelet_rails/pull/18))
+
 ### 0.2.1
 
 - Add parameters to javascript `pagelet-loaded` event: id, tags, content
