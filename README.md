@@ -99,10 +99,10 @@ end
 - [Pagelet view helper](#pagelet-view-helper)
 - [Pagelet options](#pagelet-options)
 - [Pagelet cache](#pagelet-cache)
+- [Super smart caching](#super-smart-caching)
 - [Advanced functionality](#advanced-functionality)
   - [Partial update](#partial-update)
   - [Streaming](#streaming)
-  - [Super smart caching](#super-smart-caching)
   - [Ajax Batching](#ajax-batching)
   - [Pagelets as components](#pagelets-as-components)
   - [Inline routes](#inline-routes)
@@ -271,6 +271,14 @@ end
 
 In the example above cache will be scoped per `user_id` and for 5 minutes unless it is overwritten in pagelet itself.
 
+## Super smart caching
+
+Probably one of the coolest functionality of pagelet_rails is "super smart caching". It allows you to render pagelets through ajax and cache them, but if page is reloaded the pagelet is rendered instantly from cache.
+
+ So on the first page load user sees "Loading..." blocks, but after the content is instant.
+
+The best thing, it's enabled by default if pagelet has caching enabled and is rendering through ajax request.
+
 
 ## Advanced functionality
 
@@ -345,14 +353,6 @@ Usage:
 
 Finally if everything is done right you should see significant rendering speed improvements especially on old browsers, slow network or with cold cache.
 
-
-### Super smart caching
-
-Probably one of the coolest functionality of pagelet_rails is "super smart caching". It allows you to render pagelets through ajax and cache them, but if page is reloaded the pagelet is rendered instantly from cache.
-
- So on the first page load user sees "Loading..." blocks, but after the content is instant.
-
-The best thing, it's enabled by default if pagelet has caching enabled and is rendering through ajax request.
 
 ### Ajax Batching
 
