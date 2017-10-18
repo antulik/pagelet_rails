@@ -9,8 +9,8 @@ module PageletRails
 
   eager_autoload do
     autoload :Component
+    autoload :Controller
     autoload :Encryptor
-    autoload :Method
     autoload :Router
   end
 
