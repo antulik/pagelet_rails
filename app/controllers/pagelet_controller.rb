@@ -1,3 +1,3 @@
 class PageletController < ::ApplicationController
-  include PageletRails::Concerns::Controller
+  include PageletRails::Component
 end

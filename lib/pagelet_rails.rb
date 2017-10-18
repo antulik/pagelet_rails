@@ -8,7 +8,9 @@ module PageletRails
   extend ActiveSupport::Autoload
 
   eager_autoload do
+    autoload :Component
     autoload :Encryptor
+    autoload :Method
     autoload :Router
   end
 
