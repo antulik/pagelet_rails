@@ -53,14 +53,16 @@ module PageletsHelper
   def pagelet path, p_options = {}
     Rails.logger.info "Rendering pagelet #{path}"
 
-    p_params = p_options.delete(:params) { {} }.with_indifferent_access
-
     if path.is_a? Symbol
+      p_params = p_options.delete(:params) { {} }.with_indifferent_access
       path = self.send("#{path}_url", p_params)
+
     else
+      if p_options.key? :params
+        raise ArgumentError, ':params option is ignored when first argument is string'
+      end
       uri = URI(path)
-      p_params.merge! Rack::Utils.parse_nested_query(uri.query)
-      p_options.merge! remote: false
+      p_params = Rack::Utils.parse_nested_query(uri.query)
     end
 
     path_opts = Rails.application.routes.recognize_path(path)

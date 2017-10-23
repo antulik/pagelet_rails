@@ -89,13 +89,19 @@
         original_pagelet_options: $el.data('pagelet-options')
       });
 
-      groups[group] = groups[group] || [];
-      groups[group].push({
+      var info = {
         id: id,
         elem: $el,
         url: url,
         group: group
-      });
+      };
+
+      if (group) {
+        groups[group] = groups[group] || [];
+        groups[group].push(info);
+      } else {
+        root.loadDirectly(info);
+      }
     });
 
     for (var group_name in groups) {

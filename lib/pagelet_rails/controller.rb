@@ -60,8 +60,10 @@ module PageletRails::Controller
       render_remotely = true
     when :ssi
       render_remotely = true
-    else
+    when :inline
       render_remotely = false
+    else
+      render_remotely = true
     end
 
     render_remotely

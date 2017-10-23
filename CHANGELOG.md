@@ -2,6 +2,9 @@
 - Added `PageletRails::Controller` concern which allows to use pagelet functionality within existing rails controllers
 - Added `pagelet_method` method which enables pagelet functionality for a single method
 - `PageletRails::Concerns::Controller` renamed to `PageletRails::Component`
+- Default render mode changed from `inline` to `ajax`
+- `pagelet` helper accepts string url as the first argument
+- Disable ajax batching by default 
 
 ### 0.2.2
 - Fix links with data-remote=true wrongly selected ([#18](https://github.com/antulik/pagelet_rails/pull/18))

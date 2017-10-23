@@ -123,9 +123,9 @@ Example
 ```
 
 Options for `remote`:
-* `true`, `:ajax` - always render pagelet through ajax
+* `true`, `:ajax` - always render pagelet through ajax (default)
 * `:turbolinks`  - same as `:ajax` but inline for turbolinks page visit
-* `false` or missing - render inline
+* `false`, `:inline` - render inline
 * `:stream` - (aka BigPipe) render placeholder and render full version at the end of html. See streaming for more info.
 * `:ssi` - render through [server side includes](https://en.wikipedia.org/wiki/Server_Side_Includes)
 
