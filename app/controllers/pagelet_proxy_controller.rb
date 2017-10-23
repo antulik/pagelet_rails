@@ -10,7 +10,7 @@ class PageletProxyController < ::ApplicationController
     response.stream.write "\n"
 
     @urls.each do |url|
-      response.stream.write pagelet(url, skip_parent_params: true)
+      response.stream.write pagelet(url, skip_parent_params: true, remote: false)
       response.stream.write "\n\n//\n\n"
     end
   ensure

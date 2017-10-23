@@ -52,6 +52,7 @@ module PageletsHelper
 
   def pagelet path, p_options = {}
     Rails.logger.info "Rendering pagelet #{path}"
+    p_options[:remote] = :ajax unless p_options.key? :remote
 
     if path.is_a? Symbol
       p_params = p_options.delete(:params) { {} }.with_indifferent_access
